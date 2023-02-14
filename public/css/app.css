@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.brand {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5em;
+    text-shadow: 2px 5px 10px black;
+    font-weight: bold;
+}
+.brand-bg {
+    background:  linear-gradient(45deg, rgba(255, 0, 0, 0.409),rgba(0, 0, 255, 0.709)) , url('https://images.unsplash.com/photo-1623615815263-ae43fa7fbdd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    background-size: cover;
+}
