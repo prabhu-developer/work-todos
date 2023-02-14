@@ -10,6 +10,7 @@
     <title>{{ __('app.brand') }} | Home</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <style>body { text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5); box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);}</style>
 </head>
 
 <body class="d-flex h-100 text-center text-white brand-bg">
@@ -23,7 +24,7 @@
             <h1>Welcome to work to-do app.</h1>
             <p class="lead">Track your daily basic tasks via work to-do application. let's start your day with us.</p>
             <p class="lead"> 
-                <a href="#" class="btn btn-lg btn-outline-light fw-bold">Sign In</a>
+                <a href="{{ route('login') }}" class="btn btn-lg btn-outline-light fw-bold">Sign In</a>
                 <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Sign Up</a>
             </p>
         </main>
