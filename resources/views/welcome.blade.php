@@ -25,7 +25,7 @@
             <p class="lead">Track your daily basic tasks via work to-do application. let's start your day with us.</p>
             <p class="lead"> 
                 <a href="{{ route('login') }}" class="btn btn-lg btn-outline-light fw-bold">Sign In</a>
-                <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Sign Up</a>
+                <a href="{{ route('register') }}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Sign Up</a>
             </p>
         </main>
         <footer class="mt-auto text-white-50">

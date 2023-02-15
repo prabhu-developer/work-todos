@@ -13,19 +13,25 @@
                             <strong class="text-success">{{ $message }}</strong>
                         </div>
                     @endif
+                    @error('email')
+                        <div>
+                            <strong class="text-danger">{{ $message }}</strong>
+                        </div>
+                    @enderror
                     <h4 class="font-weight-normal text-dark mt-5">
                         Log in to your account
                     </h4>
-                    <form class="w-300 w-lg-350 mt-4">
+                    <form class="w-300 w-lg-350 mt-4" action="{{ route('login') }}" method="POST">
+                        @csrf
                         <div class="mb-3">
-                            <input type="email" name="email" placeholder="Email" class="form-control form-control-lg bg-pastel-darkblue">
+                            <input type="email" name="email" placeholder="Email" class="form-control form-control-lg bg-pastel-darkblue" required>
                         </div>
 
                         <div class="mb-3">
-                            <input type="password" name="password" placeholder="Password" class="form-control form-control-lg bg-pastel-darkblue">
+                            <input type="password" name="password" placeholder="Password" class="form-control form-control-lg bg-pastel-darkblue" required>
                         </div>
                         
-                        <input type="submit" class="btn btn-primary btn-lg shadow-light text-uppercase-bold-sm hover-lift mt-4" value="Sign in">
+                        <input type="submit" class="btn btn-primary btn-lg shadow-light text-uppercase-bold-sm hover-lift mt-4" value="Log in">
 
                         <div class="text-secondary font-size-sm mt-5">
                             Don't have an account? <a href="{{ route('register') }}">Register</a>
