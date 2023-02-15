@@ -13,17 +13,34 @@
                 <h4 class="font-weight-normal text-dark mt-5">
                     Create your account
                 </h4>
-                <form class="w-300 w-lg-350 mt-4">
+                <form class="w-100 mt-4" action="{{ route('register') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
-                        <input type="text" name="name" placeholder="Your name" class="form-control form-control-lg bg-pastel-darkblue">
+                        <input type="text" name="name" placeholder="Your name" class="form-control form-control-lg bg-pastel-darkblue" value="{{ old('name') }}" required>
+                        @error('name')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <input type="email" name="email" placeholder="Email" class="form-control form-control-lg bg-pastel-darkblue">
+                        <input type="email" name="email" placeholder="Email" class="form-control form-control-lg bg-pastel-darkblue" value="{{ old('email') }}" required>
+                        @error('email')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <input type="password" name="password" placeholder="Password" class="form-control form-control-lg bg-pastel-darkblue">
+                        <input type="password" name="password" placeholder="Password" class="form-control form-control-lg bg-pastel-darkblue"  required>
+                        @error('password')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="password" name="confirm_password" placeholder="Re-Enter your Password" class="form-control form-control-lg bg-pastel-darkblue"  required>
+                        @error('confirm_password')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
 
                     <div class="mb-3 text-left">

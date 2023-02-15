@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
-<body>
+<body> 
     <main>
-        @yield('auth_content') 
+        @yield('auth_content')
     </main>
 </body>
 

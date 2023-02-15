@@ -8,6 +8,11 @@
                     <a href="/" class="brand text-dark">
                         {{ __('app.brand') }}
                     </a>
+                    @if ($message = Session::get('success'))
+                        <div>
+                            <strong class="text-success">{{ $message }}</strong>
+                        </div>
+                    @endif
                     <h4 class="font-weight-normal text-dark mt-5">
                         Log in to your account
                     </h4>
