@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Todos;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 use DataTables;
@@ -24,18 +23,32 @@ class TodoController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) { 
-            return Datatables::of($this->todos->select('*'))
+            $todo = $this->todos->select('*');
+            $todo->when(isset($request->status),function($query) use ($request) {
+                $query->where('status', $request->status);
+            });
+            return Datatables::of($todo)
                     ->addIndexColumn()
+                    ->addColumn('status_flag', function($todo){
+                        return  $todo->status ? '<span class="badge text-bg-success">Completed</span>' : '<span class="badge text-bg-warning">Pending</span>';
+                    })
                     ->addColumn('action', function($todo){
+                        $status_text =  $todo->status ? 'Mark as pending' : 'Mark as completed';
                         return '
-                            <a href="'.route('todo.edit',$todo->id).'" class="btn btn-outline-primary btn-sm"> 
-                                <i class="bi bi-pencil me-1"></i> 
-                            </a>
-                            <a>
-                            <i class="bi bi-trash btn btn-sm btn-danger btn-delete" data-id="'.$todo->id.'"></i>
+                            <div>
+                                <button class="btn btn-light border-0 btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="'.route('todo.edit',$todo->id).'">Edit</a></li>
+                                    <li><a class="dropdown-item btn-change-status" data-id="'.$todo->id.'" href="#">'.$status_text.'</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item btn-delete text-danger" data-id="'.$todo->id.'" href="#">Delete</a></li>
+                                </ul>
+                            </div>
                         ';
                     })
-                    ->rawColumns(['action'])
+                    ->rawColumns(['action','status_flag'])
                     ->make(true);
         }
         
@@ -113,6 +126,19 @@ class TodoController extends Controller
         ]);
 
         return redirect(route('todo.index'))->withSuccess(__('app.todo_updated'));
+    }
+
+
+    public function update_status(Request $request, $id)
+    {
+        $todos = $this->todos->findOrFail($id);
+        $todos->update([
+            'status'   => !$todos->status
+        ]);
+        return response([
+            "status"  => true,
+            "message" => __('app.todo_updated')
+        ]);
     }
 
     /**

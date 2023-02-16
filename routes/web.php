@@ -14,4 +14,5 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [HomeController::class,'index'])->name('dashboard');
     Route::resource('/todo', TodoController::class);
+    Route::post('/todo/update-status/{id?}', [TodoController::class,'update_status']);
 });

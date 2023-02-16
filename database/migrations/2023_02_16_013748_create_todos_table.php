@@ -17,7 +17,7 @@ class CreateTodosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->text('title');
-            $table->enum('status',[__('app.status_completed'),__('app.status_pending')])->default(__('app.status_pending'));
+            $table->boolean('status')->default(false);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

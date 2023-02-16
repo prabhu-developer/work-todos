@@ -20,7 +20,7 @@
                     </span>
                 </div>
                 <div class="card-footer">
-                    <div class="h3 fw-bold">35</div>
+                    <div class="h3 fw-bold">{{ $total }}</div>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                     </span>
                 </div>
                 <div class="card-footer">
-                    <div class="h3 fw-bold">35</div>
+                    <div class="h3 fw-bold">{{ $completed }}</div>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                     </span>
                 </div>
                 <div class="card-footer">
-                    <div class="h3 fw-bold">35</div>
+                    <div class="h3 fw-bold">{{ $pending }}</div>
                 </div>
             </div>
         </div>
