@@ -60,6 +60,16 @@ php artisan serve
 
 Then go to `http://localhost:8000` from your browser and see the app.
 
+## Screenshot
+
+![Landing Page](/screenshots/s1.png)
+![Login Page](/screenshots/s2.png)
+![Registration Page](/screenshots/s3.png)
+![Dashboard Page](/screenshots/s4.png)
+![Todo Listing Page](/screenshots/s5.png)
+![Create New ToDo Page](/screenshots/s6.png)
+![Edit ToDo Page](/screenshots/s7.png)
+
 ## Ask a question?
 
 If you have any query please contact at prabhu.k.code@gmail.com
