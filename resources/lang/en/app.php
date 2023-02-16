@@ -14,6 +14,6 @@ return [
     'status_completed' => 'COMPLETED',
     'status_pending'   => 'PENDING',
     'todo_created'     => 'New todo created!',
-    'todo_deleted'     => 'todo deleted!',
-    'todo_updated'     => 'changed saved!',
+    'todo_deleted'     => 'Todo deleted!',
+    'todo_updated'     => 'Changed saved!',
 ];

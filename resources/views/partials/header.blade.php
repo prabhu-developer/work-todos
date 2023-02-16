@@ -7,19 +7,19 @@
 
             <ul class="nav col-12 col-lg-auto mx-lg-auto mb-2 justify-content-center mb-md-0">
                 <li>
-                    <a href="#" class="nav-link px-2 link-dark active fw-bold">
+                    <a href="{{ route('dashboard') }}" class="nav-link px-2 {{ Route::is(['dashboard']) ? "link-dark active" : "link-secondary" }}">
                         <i class="bi bi-speedometer2 me-1"></i> 
                         {{ __('app.dashboard') }}
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link px-2 link-secondary">
+                    <a href="{{ route('todo.index') }}" class="nav-link px-2 {{ Route::is(['todo.index','todo.edit']) ? "link-dark active" : "link-secondary" }}">
                         <i class="bi bi-list-task me-1"></i>
                         {{ __('app.my_todo') }}
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link px-2 link-secondary">
+                    <a href="{{ route('todo.create') }}" class="nav-link px-2 {{ Route::is(['todo.create']) ? "link-dark active" : "link-secondary" }}">
                         <i class="bi bi-plus me-1"></i>
                         {{ __('app.new_todo') }}
                     </a>
@@ -31,11 +31,11 @@
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://avatars.githubusercontent.com/u/98683?v=1" alt="user" width="32" height="32" class="rounded-circle">
-                    Prabhu.k
+                    {{ auth()->user()->name }}
                 </a>
                 <ul class="dropdown-menu text-small" style="">
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('todo.create') }}">
                             {{ __('app.new_todo') }}
                         </a>
                     </li>
