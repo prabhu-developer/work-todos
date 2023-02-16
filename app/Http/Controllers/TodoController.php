@@ -27,7 +27,13 @@ class TodoController extends Controller
             return Datatables::of($this->todos->select('*'))
                     ->addIndexColumn()
                     ->addColumn('action', function($todo){
-                        return '<i class="bi bi-trash btn btn-sm btn-danger btn-delete" data-id="'.$todo->id.'"></i>';
+                        return '
+                            <a href="'.route('todo.edit',$todo->id).'" class="btn btn-outline-primary btn-sm"> 
+                                <i class="bi bi-pencil me-1"></i> 
+                            </a>
+                            <a>
+                            <i class="bi bi-trash btn btn-sm btn-danger btn-delete" data-id="'.$todo->id.'"></i>
+                        ';
                     })
                     ->rawColumns(['action'])
                     ->make(true);
@@ -85,7 +91,8 @@ class TodoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $todo = $this->todos->findOrFail($id);
+        return view('todo.edit',compact('todo'));
     }
 
     /**
@@ -97,7 +104,15 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:350'
+        ]); 
+
+        $this->todos->findOrFail($id)->update([
+            'title'   => $request->title
+        ]);
+
+        return redirect(route('todo.index'))->withSuccess(__('app.todo_updated'));
     }
 
     /**

@@ -21,14 +21,7 @@
         @include('partials.header')
     {{-- ====== /Header ==== --}}
 
-    <main class="container">
-
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success alert-dismissible shadow-sm fade show" role="alert">
-                <strong>{{ ucfirst($message) }}</strong> 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif 
+    <main class="container"> 
 
         {{-- ==== Breadcrumb ===== --}}
             @include('partials.breadcrumb')
@@ -44,9 +37,16 @@
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.3/axios.min.js" integrity="sha512-wS6VWtjvRcylhyoArkahZUkzZFeKB7ch/MHukprGSh1XIidNvHG1rxPhyFnL73M0FC1YXPIXLRDAoOyRJNni/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
         @stack('scripts')
-
+        
+        @if ($message = Session::get('success')) 
+            <script>
+                Alert('success',"{{ ucfirst($message) }}")
+            </script>
+        @endif 
     {{-- ======== /Scripts  ====== --}}
 </body>
 

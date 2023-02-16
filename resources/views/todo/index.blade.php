@@ -30,9 +30,7 @@
     </div>
 @endsection
 
-@push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.3/axios.min.js" integrity="sha512-wS6VWtjvRcylhyoArkahZUkzZFeKB7ch/MHukprGSh1XIidNvHG1rxPhyFnL73M0FC1YXPIXLRDAoOyRJNni/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@push('scripts') 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
@@ -66,21 +64,9 @@
                         if (result.isConfirmed) {
                             axios.delete(`{{ url('/todo') }}/${todoId}`).then((response) => {
                                 if(response.status) {
-                                    Swal.fire({
-                                        text: response.data.message,
-                                        icon: 'success',
-                                        showCancelButton: false,
-                                        confirmButtonColor: '#3085d6',
-                                        confirmButtonText: 'OK'
-                                    })
+                                    Alert('success', response.data.message)
                                 } else {
-                                    Swal.fire({
-                                        text: 'Something went wrong!',
-                                        icon: 'warning',
-                                        showCancelButton: false,
-                                        confirmButtonColor: '#3085d6',
-                                        confirmButtonText: 'OK'
-                                    })
+                                    Alert('success', 'Something went wrong!')
                                 }
                                 table.clear().draw();
                             })
