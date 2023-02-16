@@ -27,9 +27,9 @@ cp .env.example .env
 ```
 
 For windows users -
-```
+
 copy paste the .env.example file in your project directory and rename the file .env - Copy.example  to  .env
-```
+
 
 Then edit `.env` file with appropriate credential for your database server. Just edit these two parameter(`DB_USERNAME`, `DB_PASSWORD`).
 
