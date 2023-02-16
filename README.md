@@ -21,10 +21,6 @@ Then do a composer install
 composer install
 ```
 
-Then cd into the folder with this command-
-```
-cd work-todos
-``` 
 
 Then create a environment file using this command-
 ```
