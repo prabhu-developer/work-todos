@@ -37,6 +37,14 @@ php artisan migrate
 At last generate application key, which will be used for password hashing, session and cookie encryption etc.
 ```
 php artisan key:generate
+
+```
+
+## Setup Composer
+
+Run server using this command-
+```
+composer install
 ```
 
 ## Run server
