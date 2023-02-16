@@ -42,7 +42,7 @@ php artisan key:generate
 
 ## Setup Composer
 
-Run server using this command-
+install packages using using this command-
 ```
 composer install
 ```
