@@ -17,7 +17,7 @@ class AuthMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check()) {
+        if (Auth::check() && request()->route()->getName() !== 'logout') {
             return redirect()->route('dashboard');
         }
         return $next($request);

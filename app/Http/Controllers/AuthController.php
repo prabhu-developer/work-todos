@@ -19,7 +19,6 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }
-
     
     public function post_login(Request $request)
     {
@@ -47,5 +46,11 @@ class AuthController extends Controller
             "password" => Hash::make($request->password),
         ]);
         return redirect(route('login'))->withSuccess(__('app.register_success'));
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect(route('welcome'))->withSuccess(__('app.logout_success'));
     }
 }

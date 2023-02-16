@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [HomeController::class,'index'])->name('dashboard');

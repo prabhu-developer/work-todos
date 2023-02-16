@@ -60,7 +60,6 @@ php artisan serve
 
 Then go to `http://localhost:8000` from your browser and see the app.
 
-
 ## Ask a question?
 
 If you have any query please contact at prabhu.k.code@gmail.com
