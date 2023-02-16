@@ -23,6 +23,12 @@
 
     <main class="container">
 
+        @if ($message = Session::get('success'))
+            <div class="alert-success alert">
+                <strong class="text-success">{{ $message }}</strong>
+            </div>
+        @endif 
+
         {{-- ==== Breadcrumb ===== --}}
             @include('partials.breadcrumb')
         {{-- ==== /Breadcrumb ===== --}}

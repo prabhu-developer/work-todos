@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="text-end">
-        <button class="btn btn-primary mb-3 "> 
+        <a href="{{ route('todo.create') }}" class="btn btn-primary mb-3"> 
             <i class="bi bi-plus me-1"></i> 
             {{ __('app.new_todo') }} 
-        </button>
+        </a>
     </div>
     <div class="row g-3">
-        <div class="col">
+        <div class="col-md-4">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <b class="text-primary">
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col-md-4">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <b class="text-primary">
@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col-md-4">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <b class="text-primary">
