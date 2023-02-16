@@ -29,7 +29,7 @@
             </p>
         </main>
         <footer class="mt-auto text-white-50">
-            <p>Developed By <a href="https://getbootstrap.com/" class="text-white">Prabhu.coder</a></p>
+            <p>Developed By <a href="https://github.com/prabhu-developer//" class="text-white">Prabhu.coder</a></p>
         </footer>
     </div>
 </body>

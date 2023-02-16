@@ -13,7 +13,7 @@ git clone https://github.com/prabhu-developer/work-todos.git
 
 Then cd into the folder with this command-
 ```
-cd laravel-todo
+cd work-todos
 ```
 
 Then do a composer install
