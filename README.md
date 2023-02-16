@@ -14,6 +14,16 @@ git clone https://github.com/prabhu-developer/work-todos.git
 Then cd into the folder with this command-
 ```
 cd work-todos
+```
+
+Then do a composer install
+```
+composer install
+```
+
+Then cd into the folder with this command-
+```
+cd work-todos
 ``` 
 
 Then create a environment file using this command-
@@ -39,13 +49,7 @@ At last generate application key, which will be used for password hashing, sessi
 php artisan key:generate
 
 ```
-
-## Setup Composer
-
-install packages using using this command-
-```
-composer install
-```
+ 
 
 ## Run server
 
