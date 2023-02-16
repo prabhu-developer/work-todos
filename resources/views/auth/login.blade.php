@@ -15,7 +15,7 @@
                     @endif
                     @error('email')
                         <div>
-                            <strong class="text-danger">{{ $message }}</strong>
+                            <strong class="error-text">{{ $message }}</strong>
                         </div>
                     @enderror
                     <h4 class="font-weight-normal text-dark mt-5">

@@ -18,29 +18,30 @@
                     <div class="mb-3">
                         <input type="text" name="name" placeholder="Your name" class="form-control form-control-lg bg-pastel-darkblue" value="{{ old('name') }}" required>
                         @error('name')
-                            <small class="text-danger">{{ $message }}</small>
+                            <small class="error-text">{{ $message }}</small>
                         @enderror
                     </div>
 
                     <div class="mb-3">
                         <input type="email" name="email" placeholder="Email" class="form-control form-control-lg bg-pastel-darkblue" value="{{ old('email') }}" required>
                         @error('email')
-                            <small class="text-danger">{{ $message }}</small>
+                            <small class="error-text">{{ $message }}</small>
                         @enderror
                     </div>
 
                     <div class="mb-3">
                         <input type="password" name="password" placeholder="Password" class="form-control form-control-lg bg-pastel-darkblue"  required>
                         @error('password')
-                            <small class="text-danger">{{ $message }}</small>
+                            <small class="error-text">{{ $message }}</small>
                         @enderror
                     </div>
 
                     <div class="mb-3">
                         <input type="password" name="confirm_password" placeholder="Re-Enter your Password" class="form-control form-control-lg bg-pastel-darkblue"  required>
                         @error('confirm_password')
-                            <small class="text-danger">{{ $message }}</small>
+                            <small class="error-text">{{ $message }}</small>
                         @enderror
+
                     </div>
 
                     <div class="mb-3 text-left">

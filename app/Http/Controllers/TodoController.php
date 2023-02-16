@@ -23,7 +23,7 @@ class TodoController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) { 
-            $todo = $this->todos->select('*');
+            $todo = $this->todos->where('user_id',auth()->user()->id)->select('*');
             $todo->when(isset($request->status),function($query) use ($request) {
                 $query->where('status', $request->status);
             });

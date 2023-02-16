@@ -60,6 +60,13 @@
     outline: 0;
 }
 
+.error-text {
+    color: var(--bs-danger);
+    color: var(--bs-danger);
+    position: relative;
+    max-width: 250px !important;
+    display: block;
+}
 
 /* ===== For Responsive ==== */
 @media (min-width: 992px) {
