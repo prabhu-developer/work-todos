@@ -13673,4 +13673,8 @@ fieldset:disabled .btn {
     border-bottom-color: #fff;
 }
 
+div.dataTables_processing>div:last-child>div {
+    background: var(--bs-primary) !important;
+}
+
 /*# sourceMappingURL=bootstrap.min.css.map */

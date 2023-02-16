@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Todos;
+use App\Models\User;
 use Illuminate\Http\Request;
+
+use DataTables;
 
 class TodoController extends Controller
 {
@@ -18,9 +21,19 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) { 
+            return Datatables::of($this->todos->select('*'))
+                    ->addIndexColumn()
+                    ->addColumn('action', function($todo){
+                        return '<i class="bi bi-trash btn btn-sm btn-danger btn-delete" data-id="'.$todo->id.'"></i>';
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        
+        return view('todo.index');
     }
 
     /**
@@ -50,7 +63,7 @@ class TodoController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-        return redirect(route('dashboard'))->withSuccess(__('app.todo_created'));
+        return redirect(route('todo.index'))->withSuccess(__('app.todo_created'));
     }
 
     /**
@@ -95,6 +108,11 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->todos->findOrFail($id)->delete();
+
+        return response([
+            "status"  => true,
+            "message" => __('app.todo_deleted')
+        ]);
     }
 }
